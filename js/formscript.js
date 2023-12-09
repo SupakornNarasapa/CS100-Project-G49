@@ -148,7 +148,7 @@ function validateAllFieldsFilled() {
 
 async function fetchActivityTypes() {
   try {
-    const response = await fetch(`http://${window.location.hostname}:${port}/getActivityType`);
+    const response = await fetch(`http://${window.location.hostname}:${port}/getactivityType`);
     if (response.ok) {
       const data = await response.json();
       return data;
@@ -161,6 +161,31 @@ async function fetchActivityTypes() {
     return [];
   }
 }
+async function fetchFaculty() {
+  try {
+    const response = await fetch(`http://${window.location.hostname}:${port}/getfaculty`);
+    if (response.ok) {
+      const data = await response.json();
+      return data;
+    } else {
+      console.error("Failed to fetch faculty types.");
+      return [];
+    }
+  } catch (error) {
+    console.error("An error occurred while fetching faculty types:", error);
+    return [];
+  }
+}
+function populateFaculty(faculty) {
+  const facultySelect = document.getElementById("faculty");
+
+  for (const type of faculty) {
+    const option = document.createElement("option");
+    option.value = type.id;
+    option.textContent = type.value;
+    activityTypeSelect.appendChild(option);
+  }
+}
 function populateActivityTypes(activityTypes) {
   const activityTypeSelect = document.getElementById("activityType");
 
@@ -171,11 +196,12 @@ function populateActivityTypes(activityTypes) {
     activityTypeSelect.appendChild(option);
   }
 }
-
 // Event listener when the page content has finished loading
 document.addEventListener("DOMContentLoaded", async () => {
   const activityTypes = await fetchActivityTypes();
   populateActivityTypes(activityTypes);
+  const faculty = await fetchFaculty();
+  populateFaculty(faculty);
 });
 
 async function submitForm(event) {
