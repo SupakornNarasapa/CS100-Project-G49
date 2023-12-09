@@ -1,21 +1,36 @@
 #!/bin/bash
+
 sudo yum update -y || sudo apt-get update -y
+
 sudo yum install -y git || sudo apt-get install -y git
+
 sudo yum install -y nodejs npm || {
-	curl -sL https://deb.nodesource.com/setup_14x | sudo -E bash -
-	sudo yum install -y nodejs
+	curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+	sudo apt-get install -y nodejs
 }
+
 sudo npm install pm2 -g
+
 cd /home/ec2-user
+
 git clone https://github.com/SupakornNarasapa/CS100-Project-G49.git
+
 cd CS100-Project-G49/backend
+
 sudo npm install
+
 sudo pm2 start form.js
+
 sudo pm2 save
+
 sudo pm2 startup
+
 sudo yum install -y nginx
+
 sudo systemctl start nginx
+
 sudo systemctl enable nginx
+
 sudo cp -r /home/ec2-user/CS100-Project-G49/backend /usr/share/nginx/html/
 sudo cp -r /home/ec2-user/CS100-Project-G49/form /usr/share/nginx/html/
 sudo cp -r /home/ec2-user/CS100-Project-G49/css /usr/share/nginx/html/
@@ -23,4 +38,5 @@ sudo cp -r /home/ec2-user/CS100-Project-G49/image /usr/share/nginx/html/
 sudo cp -r /home/ec2-user/CS100-Project-G49/js /usr/share/nginx/html/
 sudo cp -r /home/ec2-user/CS100-Project-G49/video /usr/share/nginx/html/
 sudo cp /home/ec2-user/CS100-Project-G49/index.html /usr/share/nginx/html/
+
 sudo systemct1 restart nginx

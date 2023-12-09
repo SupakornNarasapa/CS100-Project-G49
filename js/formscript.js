@@ -139,7 +139,7 @@ function validateAllFieldsFilled() {
 
 async function fetchActivityTypes() {
   try {
-    const response = await fetch(`http://localhost:8000/getActivityType`);
+    const response = await fetch(`http://${window.location.hostname}:${port}/getActivityType`);
     if (response.ok) {
       const data = await response.json();
       return data;
@@ -154,7 +154,7 @@ async function fetchActivityTypes() {
 }
 async function fetchFaculty() {
   try {
-    const response = await fetch(`http://localhost:8000/getFaculty`);
+    const response = await fetch(`http://${window.location.hostname}:${port}/getFaculty`);
     if (response.ok) {
       const data = await response.json();
       return data;
@@ -169,7 +169,7 @@ async function fetchFaculty() {
 }
 async function fetchPassports() {
   try {
-    const response = await fetch(`http://localhost:8000/getPassports`);
+    const response = await fetch(`http://${window.location.hostname}:${port}/getPassports`);
     if (response.ok) {
       const data = await response.json();
       return data;
@@ -254,7 +254,7 @@ async function submitForm(event) {
   console.log(data);
 
   try {
-    const response = await fetch(`http://localhost:8000/record`, {
+    const response = await fetch(`http://${window.location.hostname}:${port}/record`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
