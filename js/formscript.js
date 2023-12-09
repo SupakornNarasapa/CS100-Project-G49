@@ -3,6 +3,7 @@
   };
   const port = 8000;
 
+  
 // Constants for error messages
 const ERROR_MESSAGES = {
   engfullName: "Please enter both your Firstname and Lastname using only English letters.",
@@ -107,7 +108,7 @@ function blankOutFutureDates() {
 function displaySubmittedData(data) {
   const submittedDataContainer = document.getElementById("submittedData");
 
-  submittedDataContainer.innerHTML = "";
+  submittedDataContainer.innerHTML = "submittedData";
 
   const flexContainer = document.createElement("div");
   flexContainer.classList.add("submitted-data-container");
@@ -172,7 +173,7 @@ document.getElementById("myForm").addEventListener("submit", async (event) => {
     eng_last_name: formData.get("engfullname").split(" ")[1],
     thai_first_name: formData.get("thaifullname").split(" ")[0],
     thai_last_name: formData.get("thaifullname").split(" ")[1],
-    faculty: parseInt(formData.get("faculty")),
+    faculty_id: parseInt(formData.get("faculty")),
     student_id: parseInt(formData.get("studentID")),
     email: formData.get("email"),
     title: formData.get("workTitle"),
@@ -225,17 +226,17 @@ document.getElementById("thaifullname").addEventListener("input", validateThaiNa
 document.getElementById("studentID").addEventListener("input", validateStudentID);
 document.getElementById("email").addEventListener("input", validateEmail);
 
+
 document.addEventListener("DOMContentLoaded", validateAndDisableFutureDates);
 
 document.addEventListener("DOMContentLoaded", () => {blankOutFutureDates();});
 
-  
 document.addEventListener('DOMContentLoaded', function () {
-    document.body.style.opacity = 0;
-    setTimeout(function () {
-      document.body.style.transition = 'opacity 1s';
-      document.body.style.opacity = 1;
-    }, 0);
+  // Animated effect - fade in the whole page
+  document.body.style.opacity = 0;
+  setTimeout(function () {
+    document.body.style.transition = 'opacity 1s';
+    document.body.style.opacity = 1;
+  }, 0);
 });
-
   

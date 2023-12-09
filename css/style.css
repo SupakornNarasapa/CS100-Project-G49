@@ -227,6 +227,7 @@
   
   .form-group {
     margin-bottom: 20px;
+    position: relative;
   }
   
   .form-group label {

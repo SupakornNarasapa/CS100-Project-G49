@@ -28,7 +28,7 @@ app.post('/record', (req, res) => {
     const data = req.body;
 
     // Check for mandatory fields in the incoming request
-    if (!data.first_name || !data.last_name || !data.student_id || !data.email || !data.title || 
+    if (!data.eng_first_name || !data.eng_last_name || !data.thai_first_name || !data.thai_last_name || !data.faculty_id || !data.student_id || !data.email || !data.title || 
       !data.type_of_work_id || !data.academic_year || !data.semester || !data.start_date || !data.end_date || !data.location || !data.description) {
       return res.status(400).send('All fields are required.');
     }
@@ -45,7 +45,7 @@ app.post('/record', (req, res) => {
       eng_last_name: data.eng_last_name,
       thai_first_name: data.thai_first_name,
       thai_last_name: data.thai_last_name,
-      faculty: data.faculty,
+      faculty_id: data.faculty_id,
       student_id: data.student_id,
       email: data.email,
       title: data.title,
