@@ -106,31 +106,22 @@ function blankOutFutureDates() {
 }
 
 function displaySubmittedData(data) {
-  const submittedDataContainer = document.getElementById("submittedData");
+  const submittedDataDiv = document.getElementById("submittedData");
+  submittedDataDiv.innerHTML = "";
 
-  submittedDataContainer.innerHTML = "submittedData";
+  const dataParagraph = document.createElement("p");
+  dataParagraph.textContent = "Submitted Data:";
+  submittedDataDiv.appendChild(dataParagraph);
 
-  const flexContainer = document.createElement("div");
-  flexContainer.classList.add("submitted-data-container");
+  const dataList = document.createElement("ul");
 
   for (const [key, value] of Object.entries(data)) {
-    const flexItem = document.createElement("div");
-    flexItem.classList.add("flex-item");
-
-    const keyElement = document.createElement("span");
-    keyElement.classList.add("flex-key");
-    keyElement.textContent = key + ": ";
-
-    const valueElement = document.createElement("span");
-    valueElement.classList.add("flex-value");
-    valueElement.textContent = value;
-
-    flexItem.appendChild(keyElement);
-    flexItem.appendChild(valueElement);
-    flexContainer.appendChild(flexItem);
+    const listItem = document.createElement("li");
+    listItem.textContent = `${key}: ${value}`;
+    dataList.appendChild(listItem);
   }
 
-  submittedDataContainer.appendChild(flexContainer);
+  submittedDataDiv.appendChild(dataList);
 }
 
 function validateAllFieldsFilled() {
@@ -148,7 +139,7 @@ function validateAllFieldsFilled() {
 
 async function fetchActivityTypes() {
   try {
-    const response = await fetch(`http://${window.location.hostname}:${port}/getactivityType`);
+    const response = await fetch(`http://localhost:8000/getActivityType`);
     if (response.ok) {
       const data = await response.json();
       return data;
@@ -163,7 +154,7 @@ async function fetchActivityTypes() {
 }
 async function fetchFaculty() {
   try {
-    const response = await fetch(`http://${window.location.hostname}:${port}/getfaculty`);
+    const response = await fetch(`http://localhost:8000/getFaculty`);
     if (response.ok) {
       const data = await response.json();
       return data;
@@ -173,6 +164,21 @@ async function fetchFaculty() {
     }
   } catch (error) {
     console.error("An error occurred while fetching faculty types:", error);
+    return [];
+  }
+}
+async function fetchPassports() {
+  try {
+    const response = await fetch(`http://localhost:8000/getPassports`);
+    if (response.ok) {
+      const data = await response.json();
+      return data;
+    } else {
+      console.error("Failed to fetch records.");
+      return [];
+    }
+  } catch (error) {
+    console.error("An error occurred while fetching records:", error);
     return [];
   }
 }
@@ -202,6 +208,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   populateActivityTypes(activityTypes);
   const faculty = await fetchFaculty();
   populateFaculty(faculty);
+  const passports = await fetchPassports();
 });
 
 async function submitForm(event) {
@@ -236,7 +243,7 @@ async function submitForm(event) {
     email: formData.get("email"),
     title: formData.get("workTitle"),
     type_of_work_id: parseInt(formData.get("activityType")),
-    academic_year: parseInt(formData.get("academicYear")) - 543,
+    academic_year: parseInt(formData.get("academicYear")),
     semester: parseInt(formData.get("semester")),
     start_date: formData.get("startDate"),
     end_date: formData.get("endDate"),
@@ -247,7 +254,7 @@ async function submitForm(event) {
   console.log(data);
 
   try {
-    const response = await fetch(`http://${window.location.hostname}:${port}/record`, {
+    const response = await fetch(`http://localhost:8000/record`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -275,6 +282,7 @@ async function submitForm(event) {
     }
   } catch (error) {
     console.error("An error occurred while submitting form data:", error);
+    alert("An error occurred while submitting form data.");
   }
 };
 
