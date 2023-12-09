@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Activity Forms</title>
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <div class="header">
+    <div class="head-text">CSTU Final Project</div>
+    <button class="tab-btn"><a href="../index.html">Homepage</a></button>
+    <button class="tab-btn"><a href="../form/form.html">Our Activities</a></button>
+    <button class="tab-btn">
+      Contents
+      <div class="dropdown-content">
+        <a href="#">Dropdown Item 1</a>
+        <a href="#">Dropdown Item 2</a>
+        <a href="#">Dropdown Item 3</a>
+      </div>
+    </button>
+  </div>
+  <div class="form-container">
+    <h1>Our Activities Form</h1>
+
+    <form id="myForm" action="#" method="post">
+      <div class="form-group">
+        <label for="engfullname">First Name - Last Name (English)</label>
+        <input type="text" id="engfullname" name="engfullname" />
+        <span id="engfullnameError" class="error"></span>
+      </div>
+      
+      <div class="form-group">
+        <label for="thaifullname">First Name - Last Name (Thai)</label>
+        <input type="text" id="thaifullname" name="thaifullname" />
+        <span id="thaifullnameError" class="error"></span>
+      </div>
+
+      <div class="form-group">
+        <label for="faculty">Faculties / Colleges</label>
+        <select id="faculty" name="faculty">
+          <option value="" disabled selected>Select an option</option>
+          <option value="Law">คณะนิติศาสตร์ / Faculty of Law</option>
+          <option value="Business">คณะพาณิชยศาสตร์และการบัญชี / Thammasat Business School</option>
+          <option value="PolSci">คณะรัฐศาสตร์ / Faculty of Politcal Science</option>
+          <option value="Economic">คณะเศรษฐศาสตร์ / Faculty of Economics</option>
+          <option value="SocialAdmin">คณะสังคมสงเคราะห์ศาสตร์ / Faculty of Social Administration</option>
+          <option value="Sociology">คณะสังคมวิทยาและมานุษยวิทยา / Faculty of Sociology and Anthropology</option>
+          <option value="LiberalArts">คณะศิลปศาสตร์ / Faculty of Liberal Arts</option>
+          <option value="FineArts">คณะศิลปกรรมศาสตร์ / Faculty of Fine Arts</option>
+          <option value="JournalCommu">คณะวารสารศาสตร์และสื่อสารมวลชน / Faculty of Journalism and Mass Communication</option>
+          <option value="ScienceTech">คณะวิทยาศาสตร์และเทคโนโลยี / Faculty of Science and Technology</option>
+          <option value="Engineering">คณะวิศวกรรมศาสตร์ / Faculty of Engineering</option>
+          <option value="Archiitecture">คณะสถาปัตยกรรมศาสตร์และการผังเมือง / Faculty of Architecture and Planning</option>
+          <option value="Medicine">คณะแพทยศาสตร์ / Faculty of Medicine</option>
+          <option value="AlliedHealth">คณะสหเวชศาสตร์ / Faculty of Allied Health Sciences</option>
+          <option value="Dentistry">คณะทันตแพทยศาสตร์ / Faculty of Dentistry </option>
+          <option value="Nursing">คณะพยาบาลศาสตร์ / Faculty of Nursing</option>
+          <option value="PublicHealth">คณะสาธารณสุขศาสตร์ / Faculty of Public Health</option>
+          <option value="Pharmacy">คณะเภสัชศาสตร์ / Faculty of Pharmacy</option>
+          <option value="Education">คณะวิทยาการเรียนรู้และศึกษาศาสตร์ / Faculty of Learning Sciences and Education</option>
+          <option value="Innovation">วิทยาลัยนวัตกรรม / College of Innovation</option>
+          <option value="Interdisciplinary">วิทยาลัยสหวิทยาการ / College of Interdisciplinary Studies</option>
+          <option value="GlobalStudies">วิทยาลัยโลกคดีศึกษา / School of Global Studies</option>
+          <option value="Sirindhorn">สถาบันเทคโนโลยีนานาชาติสิรินธร / Sirindhorn International Institute of Technology</option>
+          <option value="Pridi">วิทยาลัยนานาชาติ ปรีดี พนมยงค์ / Pridi Banomyong International College</option>
+          <option value="Chulabhorn">วิทยาลัยแพทยศาสตร์นานาชาติจุฬาภรณ์ / Chulabhorn International College of Medicine</option>
+          <option value="Puey">วิทยาลัยพัฒนศาสตร์ ป๋วย อึ๊งภากรณ์ / Puey Ungphakorn School of Development Studies</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="studentID">Student ID</label>
+        <input type="text" id="studentID" name="studentID" />
+        <span id="studentIDError" class="error"></span>
+      </div>
+      
+      <div class="form-group">
+        <label for="email">Thammasat University Email</label>
+        <input type="email" id="email" name="email" />
+        <span id="emailError" class="error"></span>
+      </div>
+
+      <div class="form-group">
+        <label for="workTitle">Work/Activity Title</label>
+        <input type="text" id="workTitle" name="workTitle" />
+      </div>
+
+      <div class="form-group">
+        <label for="activityType">Type of Work/Activity</label>
+        <select id="activityType" name="activityType">
+          <option value="" disabled selected>Select an option</option>
+          <option value="Course">ชั้นเรียน / Course</option>
+          <option value="Activity">กิจกรรม / Activity</option>
+          <option value="Work">ทำงาน / Work</option>
+          <option value="Research">วิจัย / Research</option>
+          <option value="Sports">กีฬา / Sports</option>
+          <option value="Competition">การแข่งขัน / Competition</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="academicYear">Academic Year</label>
+        <select id="academicYear" name="academicYear">
+          <option value="" disabled selected>Select an option</option>
+          <option value="2561">2561</option>
+          <option value="2562">2562</option>
+          <option value="2563">2563</option>
+          <option value="2564">2564</option>
+          <option value="2565">2565</option>
+          <option value="2566">2566</option>
+          <option value="2567">2567</option>
+          <option value="2568">2568</option>
+          <option value="2569">2569</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="semester">Semester</label>
+        <select id="semester" name="semester">
+          <option value="" disabled selected>Select an option</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="Summer">Summer</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="startDate">Start Date/Time</label>
+        <input type="datetime-local" id="startDate" name="startDate" />
+      </div>
+
+      <div class="form-group">
+        <label for="endDate">End Date/Time</label>
+        <input type="datetime-local" id="endDate" name="endDate" />
+      </div>
+
+      <div class="form-group">
+        <label for="location">Location</label>
+        <input type="text" id="location" name="location" />
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" name="description" rows="4"></textarea>
+      </div>
+
+      <div class="form-group">
+        <input type="submit" value="Submit" />
+      </div>
+    </form>
+  </div>
+  <div id="submittedData"></div>
+
+  <script src="../js/formscript.js"></script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+[
+    {
+      "id": 1,
+      "value": "Business"
+    },
+    {
+      "id": 2,
+      "value": "PolSci"
+    },
+    {
+      "id": 3,
+      "value": "Economic"
+    },
+    {
+      "id": 4,
+      "value": "SocialAdmin"
+    },
+    {
+      "id": 5,
+      "value": "Sociology"
+    },
+    {
+      "id": 6,
+      "value": "LiberalArts"
+    },
+    {
+      "id": 7,
+      "value": "FineArts"
+    },
+    {
+      "id": 8,
+      "value": "JournalCommu"
+    },
+    {
+      "id": 9,
+      "value": "ScienceTech"
+    },
+    {
+      "id": 10,
+      "value": "Engineering"
+    },
+    {
+      "id": 11,
+      "value": "Archiitecture"
+    },
+    {
+      "id": 12,
+      "value": "Medicine"
+    },
+    {
+      "id": 13,
+      "value": "AlliedHealth"
+    },
+    {
+      "id": 14,
+      "value": "Dentistry"
+    },
+    {
+      "id": 15,
+      "value": "Nursing"
+    },
+    {
+      "id": 16,
+      "value": "PublicHealth"
+    },
+    {
+      "id": 17,
+      "value": "Pharmacy"
+    },
+    {
+      "id": 18,
+      "value": "Education"
+    },
+    {
+      "id": 19,
+      "value": "Innovation"
+    },
+    {
+      "id": 20,
+      "value": "Interdisciplinary"
+    },
+    {
+      "id": 21,
+      "value": "GlobalStudies"
+    },
+    {
+      "id": 22,
+      "value": "Sirindhorn"
+    },
+    {
+      "id": 23,
+      "value": "Pridi"
+    },
+    {
+      "id": 24,
+      "value": "Chulabhorn"
+    },
+    {
+      "id": 25,
+      "value": "Puey"
+    }
+  ]
