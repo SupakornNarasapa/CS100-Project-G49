@@ -146,7 +146,39 @@ function validateAllFieldsFilled() {
   return true;
 }
 
-document.getElementById("myForm").addEventListener("submit", async (event) => {
+async function fetchActivityTypes() {
+  try {
+    const response = await fetch(`http://${window.location.hostname}:${port}/getActivityType`);
+    if (response.ok) {
+      const data = await response.json();
+      return data;
+    } else {
+      console.error("Failed to fetch activity types.");
+      return [];
+    }
+  } catch (error) {
+    console.error("An error occurred while fetching activity types:", error);
+    return [];
+  }
+}
+function populateActivityTypes(activityTypes) {
+  const activityTypeSelect = document.getElementById("activityType");
+
+  for (const type of activityTypes) {
+    const option = document.createElement("option");
+    option.value = type.id;
+    option.textContent = type.value;
+    activityTypeSelect.appendChild(option);
+  }
+}
+
+// Event listener when the page content has finished loading
+document.addEventListener("DOMContentLoaded", async () => {
+  const activityTypes = await fetchActivityTypes();
+  populateActivityTypes(activityTypes);
+});
+
+async function submitForm(event) {
   event.preventDefault();
 
   if (!validateAllFieldsFilled()) {
@@ -218,9 +250,9 @@ document.getElementById("myForm").addEventListener("submit", async (event) => {
   } catch (error) {
     console.error("An error occurred while submitting form data:", error);
   }
-});
+};
 
-
+document.getElementById("myForm").addEventListener("submit", submitForm);
 document.getElementById("engfullname").addEventListener("input", validateEngName);
 document.getElementById("thaifullname").addEventListener("input", validateThaiName);
 document.getElementById("studentID").addEventListener("input", validateStudentID);
